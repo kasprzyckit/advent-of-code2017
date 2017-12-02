@@ -2,6 +2,8 @@
 !*.*
 00*
 *.txt
+*.class
+*.hi
 
 # Prerequisites
 *.d
