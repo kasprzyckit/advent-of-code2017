@@ -24,11 +24,15 @@ public class A02a{
             	}
             	sum += max - min;
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
         	e.printStackTrace();
         } finally {
         	System.out.println(sum);
-        	br.close();
+        	if (br != null) try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 	}
 }
