@@ -4,6 +4,8 @@
 *.txt
 *.class
 *.hi
+image*
+*.cm
 
 # Prerequisites
 *.d
