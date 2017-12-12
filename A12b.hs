@@ -1,23 +1,18 @@
 import System.IO
-import Data.Tree
-import Data.List
 import Data.Graph
-
-v [] = []
-v (x:xs) = [(0, head x, tail x)] ++ (v xs)
 
 bulidGraph :: [[Int]] -> Graph
 bulidGraph s = a
-    where (a, b, c) = graphFromEdges $ v s
+    where (a, b, c) = graphFromEdges $ map (\x -> (0, head x, tail x)) s
 
 pipes :: String -> Int
 pipes = length.
     components.
     bulidGraph.
-    fmap (fmap read).
-    map (map (\x -> if last x == ',' then init x else x)).
+    map (map read).
+    map (map $ \x -> if last x == ',' then init x else x).
     map (\(x:y:xs) -> x:xs).
-    fmap words.
+    map words.
     lines
 
 main = do
