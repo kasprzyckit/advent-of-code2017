@@ -1,14 +1,9 @@
 import System.IO
-import Data.Tree
-import Data.List
 import Data.Graph
-
-v [] = []
-v (x:xs) = [(0, head x, tail x)] ++ (v xs)
 
 bulidGraph :: [[Int]] -> Graph
 bulidGraph s = a
-    where (a, b, c) = graphFromEdges $ v s
+    where (a, b, c) = graphFromEdges $ map (\x -> (0, head x, tail x)) s
 
 pipes :: String -> Int
 pipes = length.
